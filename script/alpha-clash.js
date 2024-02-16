@@ -18,7 +18,7 @@
 function handlekeyboardKeyUpEvent(event) {
     // console.log('button pressed. i am impressed !!!');
     const playerPressed = event.key;
-    console.log('player Pressed :', playerPressed);
+    // console.log('player Pressed :', playerPressed);
     // console.log(event.key);
 
     // get the expected to press
@@ -27,13 +27,16 @@ function handlekeyboardKeyUpEvent(event) {
     // console.log(playerPressed , currentAlphabet);
     // to be lowercase of currentAlphabet
     const expectedAlphabet  = currentAlphabet.toLocaleLowerCase();
-    console.log(playerPressed , expectedAlphabet);
+    // console.log(playerPressed , expectedAlphabet);
     // console.log(currentAlphabetElement.innerText);
 
     // checked match or not
 
     if (playerPressed === expectedAlphabet) {
         console.log(' You get a point');
+        console.log(' You have correctly pressed right key :' , expectedAlphabet);
+        removeBackgroundColorById(expectedAlphabet);
+        ContinueGame();
     }
     else{
         console.log('you missed. you lost a life');

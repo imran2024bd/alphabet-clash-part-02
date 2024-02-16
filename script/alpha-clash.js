@@ -64,7 +64,10 @@ function handlekeyboardKeyUpEvent(event) {
         const updatedLife = currentLife - 1;
         setTextElementValueByID('current-life' , updatedLife);
 
-
+        if (updatedLife === 0) {
+            // console.log('game over');
+            gameOver();
+        }
 
         // step-1: get the current Life number
         // const currentLifeElement = document.getElementById('current-life');
@@ -102,7 +105,20 @@ function ContinueGame() {
 
 
     function play() {
+        // hide everything show only the playground
         hideElementById('home-screen');
+        hideElementById('final-score');
         showElementById('play-ground');
+
+        // reset score and life
+        setTextElementValueByID ('current-life' , 5);
+        setTextElementValueByID('current-score' , 0);
+
         ContinueGame ()
+    }
+
+
+    function gameOver() {
+        hideElementById('play-ground');
+        showElementById('final-score');
     }
